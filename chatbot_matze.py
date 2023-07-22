@@ -5,6 +5,7 @@ from nltk.stem import WordNetLemmatizer
 from string import punctuation
 from spellchecker import SpellChecker
 import joblib
+import datetime
 
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
@@ -63,8 +64,15 @@ def generate_response(user_input):
             chat_log.append(('Chatbot', response))
             return response
 
+# def save_chat_log():
+#     with open('chat_log.txt', 'w') as file:
+#         for speaker, message in chat_log:
+#             file.write(f"{speaker}: {message}\n")
+
 def save_chat_log():
-    with open('chat_log.txt', 'w') as file:
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    with open(f'chat_log_{timestamp}.txt', 'w') as file:
+        file.write(f"This is your chatlog from the conversation from {timestamp}\n")
         for speaker, message in chat_log:
             file.write(f"{speaker}: {message}\n")
 
@@ -82,13 +90,13 @@ def main():
 
         cleaned_sentence = clean_user_input(user_input)
         print("Chatbot: Cleaned sentence - ", cleaned_sentence)
-        technique = input("Chatbot: Which technique would you like to use (logistic/naive)? ")
+        technique = input("Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? ")
         classify_sentence(cleaned_sentence, technique)
         cont = input("Chatbot: Do you want to analyze another sentence? (y/n): ")
         if cont.lower() == 'n':
             break
 
-    log_choice = input("Chatbot: Would you like to have the chat log? (y/n): ")
+    log_choice = input("Chatbot: Would you like to save the chat log? (y/n): ")
     if log_choice.lower() == 'y':
         save_chat_log()
 
