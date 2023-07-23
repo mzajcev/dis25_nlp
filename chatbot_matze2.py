@@ -16,16 +16,21 @@ loaded_vectorizer_logistic = joblib.load('vectors.logistic_regression')
 loaded_clf_naive = joblib.load('classifier.naive_bayes')
 loaded_vectorizer_naive = joblib.load('vectors.naive_bayes')
 
-# Add your greeting keywords
 list_syn = {
-    'hello': ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening']
+    'hello': ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening'],
+    'analyze': ['analyze']
 }
 
-# Initialize chat log
 chat_log = []
 
+def log(speaker, message):
+    chat_log.append((speaker, message))
+
+def log_and_print(speaker, message):
+    print(f"{speaker}: {message}")
+    log(speaker, message)
+
 def clean_user_input(user_input):
-    chat_log.append(('User', user_input))
     user_input_no_html = re.sub('<.*?>', '', user_input)
     user_input_token = word_tokenize(user_input_no_html)
     user_input_punct_lower = [x.lower() for x in user_input_token if x not in punctuation]
@@ -36,6 +41,7 @@ def clean_user_input(user_input):
     clean_response = ' '.join(base_words)
     return clean_response
 
+
 def classify_sentence(sentence, technique):
     if technique == 'logistic':
         vector = loaded_vectorizer_logistic
@@ -44,65 +50,66 @@ def classify_sentence(sentence, technique):
         vector = loaded_vectorizer_naive
         classifier = loaded_clf_naive
     else:
-        print("Invalid technique. Please choose either 'logistic' or 'naive'.")
+        log_and_print("Chatbot", "Invalid technique. Please choose either 'logistic' or 'naive'.")
         return
 
     vectorized_sentence = vector.transform([sentence])
     classification_result = classifier.predict(vectorized_sentence)
     response = f"The result of the {technique} classification is: {classification_result[0]}"
-    chat_log.append(('Chatbot', response))
-    print(response)
+    log_and_print('Chatbot', response)
 
 def generate_response(user_input):
     patterns = {
         r'(?i)({}).*'.format('|'.join(list_syn['hello'])): "How can I help you?",
-        r'(?i)(quit|exit).*': "See You!"
+        r'(?i)(quit|exit).*': "See You!",
+        r'(?i)({}).*'.format('|'.join(list_syn['analyze'])): "Great! Please enter the first sentence you would like to analyze."
     }
 
     for pattern, response in patterns.items():
         if re.match(pattern, user_input):
-            chat_log.append(('Chatbot', response))
+            log_and_print('Chatbot', response)
             return response
-
-# def save_chat_log():
-#     with open('chat_log.txt', 'w') as file:
-#         for speaker, message in chat_log:
-#             file.write(f"{speaker}: {message}\n")
+    
 
 def save_chat_log():
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     with open(f'chat_log_{timestamp}.txt', 'w') as file:
-        file.write(f"This is your chatlog from the conversation from {timestamp}\n")
+        file.write(f"This is your chatlog from the conversation from {timestamp}\n\n")
         for speaker, message in chat_log:
             file.write(f"{speaker}: {message}\n")
 
 def main():
-    print("Chatbot: Hello, I'm here to help you analyze sentences. You can start by typing the first sentence you would like to analyze or say 'quit' or 'exit' to end the session.")
+    log_and_print('Chatbot', "Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?")
     while True:
         user_input = input("User: ")
+        log('User', user_input)
         generated_response = generate_response(user_input)
-
         if generated_response:
-            print("Chatbot: ", generated_response)
             if 'See You!' in generated_response:
                 break
             continue
 
         cleaned_sentence = clean_user_input(user_input)
-        print("Chatbot: Cleaned sentence - ", cleaned_sentence)
-        technique = input("Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? ")
-        classify_sentence(cleaned_sentence, technique)
-        cont = input("Chatbot: Do you want to analyze another sentence? (y/n): ")
+        log_and_print('Chatbot', 'Cleaned sentence - ' + cleaned_sentence)
+        technique = input("Which technique would you like to use (Logistic Regression/Naive Bayes)? ")
+        log('Chatbot', "Which technique would you like to use (Logistic Regression/Naive Bayes)? ")  # Log the question
+        log('User', technique)
+        classify_sentence(cleaned_sentence, technique.lower())
+        cont = input("Do you want to analyze another sentence? (y/n): ")
+        log('Chatbot', "Do you want to analyze another sentence? (y/n): ")  # Log the question
+        log('User', cont)
         if cont.lower() == 'n':
             break
 
-    log_choice = input("Chatbot: Would you like to save the chat log? (y/n): ")
+    log_choice = input("Would you like to save the chat log? (y/n): ")
+    log('Chatbot', "Would you like to save the chat log? (y/n): ")  # Log the question
+    log('User', log_choice)
     if log_choice.lower() == 'y':
-        print("Chatbot: Alright. Saving chat log... Good Bye!")
+        log_and_print('Chatbot', "Alright. Saving chat log... Good Bye!")
         save_chat_log()
 
     if log_choice.lower() == 'n':
-        print("Chatbot: Alright. Have a good one!")
+        log_and_print('Chatbot', "Alright. Have a good one!")
 
 if __name__ == "__main__":
     main()
