@@ -7,9 +7,14 @@ from spellchecker import SpellChecker
 import joblib
 import datetime
 from create_synonyms import greetings_synonyms, analyze_synonyms, exit_synonyms
-stop_words = set(stopwords.words('english'))
+
+
 lemmatizer = WordNetLemmatizer()
 spell = SpellChecker()
+
+stop_words_orig = set(stopwords.words('english'))
+exclude_stopword = {'not'}
+stop_words = ([word for word in stop_words_orig if word not in exclude_stopword])
 
 loaded_clf_logistic = joblib.load('classifier.logistic_regression')
 loaded_vectorizer_logistic = joblib.load('vectors.logistic_regression')
