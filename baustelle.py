@@ -59,6 +59,9 @@ def classify_sentence(sentence, technique):
 def generate_response(user_input, analyze_mode, confirm_analyze_mode):
     patterns = {
         r'(?i)({}).*'.format('|'.join(greetings_synonyms)): ("How can I help you?", False, False, False),
+        r'(?i)(weather).*': ("I guess the weather is good. Nice, that you found the Easteregg. Please continue with a serious request.", False, False, False),
+        r'(?i)(help).*': ("For help and an explaination of my functions please read the according README file!", False, False, False),
+        r'(?i)(author|developer).*': ("This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.", False, False, False),
         r'(?i)({}).*'.format('|'.join(exit_synonyms)): ("You have terminated the program!", False, False, True),
     }
 
@@ -104,6 +107,7 @@ def main():
 
     while not exit_chat:
         user_input = input('User: ')
+        log('User', user_input)
         corrected_user_input = clean_user_input(user_input)  # Directly assign user's input without correction
 
         if analyze_mode:

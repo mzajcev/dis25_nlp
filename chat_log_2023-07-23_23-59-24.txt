@@ -1,0 +1,10 @@
+This is your chat log from the conversation from 2023-07-23_23-59-24
+
+Chatbot: Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?
+Chatbot: I guess the weather is good. Nice, that you found the Easteregg. Please continue with a serious request.
+Chatbot: This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.
+Chatbot: For help and an explaination of my functions please read the according README file!
+Chatbot: You have terminated the program!
+Chatbot: Would you like to save the chat log? (y/n): 
+User: y
+Chatbot: Alright. Saving chat log... Good Bye! See you soon!
