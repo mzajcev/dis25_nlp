@@ -59,7 +59,7 @@ def classify_sentence(sentence, technique):
 def generate_response(user_input, analyze_mode, confirm_analyze_mode):
     patterns = {
         r'(?i)({}).*'.format('|'.join(greetings_synonyms)): ("How can I help you?", False, False, False),
-        r'(?i)({}).*'.format('|'.join(exit_synonyms)): ("See You!", False, False, True),
+        r'(?i)({}).*'.format('|'.join(exit_synonyms)): ("You have terminated the program!", False, False, True),
     }
 
     for pattern, (response, new_analyze_mode, new_confirm_analyze_mode, new_exit_chat) in patterns.items():
@@ -69,7 +69,7 @@ def generate_response(user_input, analyze_mode, confirm_analyze_mode):
     
     if any(word in user_input.lower() for word in analyze_synonyms):
         log('User', user_input)
-        log_and_print('Chatbot', "Great! You seem interested in analyzing a sentence. Confirm by typing 'yes' or 'no' to cancel.")
+        log_and_print('Chatbot', "Great! You seem interested in analyzing a sentence. Confirm by typing 'y' or 'n' to cancel.")
         return True, True, False  # analyze_mode is True, confirm_analyze_mode is True
     log('User', user_input)
     log_and_print('Chatbot', "Sorry, I don't understand. Please try again or read the README file.")
@@ -104,11 +104,11 @@ def main():
 
     while not exit_chat:
         user_input = input('User: ')
-        corrected_user_input = user_input  # Directly assign user's input without correction
+        corrected_user_input = clean_user_input(user_input)  # Directly assign user's input without correction
 
         if analyze_mode:
             if confirm_analyze_mode:
-                if user_input.lower() == 'yes':
+                if user_input.lower() == 'y':
                     confirm_analyze_mode = False  # Reset for the next round
 
                     analyze_sentence()
@@ -117,12 +117,12 @@ def main():
                         
                     analyze_mode = False
 
-                elif user_input.lower() == 'no':
+                elif user_input.lower() == 'n':
                     analyze_mode = False  # Also reset analyze_mode for the next round
                     confirm_analyze_mode = False  # Also reset confirm_analyze_mode for the next round
                     log_and_print('Chatbot', "Alright. Cancelling analysis. What would you like to do?")
                 else:
-                    log_and_print('Chatbot', "Invalid response. Please type 'yes' to confirm or 'no' to cancel.")
+                    log_and_print('Chatbot', "Invalid response. Please type 'y' to confirm or 'n' to cancel.")
             else:
                 analyze_mode, confirm_analyze_mode, exit_chat = generate_response(corrected_user_input, analyze_mode, confirm_analyze_mode)
         else:
@@ -136,8 +136,10 @@ def ask_for_technique():
         log('Chatbot', "Which technique would you like to use (Logistic Regression/Naive Bayes)? ")
         log('User', technique)
 
-        if technique.lower() in ['logistic regression', 'naive bayes']:
-            return technique.title()
+        if 'logistic' in technique.lower():
+            return 'Logistic Regression'
+        elif 'naive' in technique.lower():
+            return 'Naive Bayes'
         else:
             log_and_print('Chatbot', "Invalid input. Please choose either 'Logistic Regression' or 'Naive Bayes'.")
 
