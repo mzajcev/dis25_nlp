@@ -12,7 +12,7 @@ def process_sentences(sentences, technique):
         classify_sentence(cleaned_sentence, technique)
 
 def main():
-    file_path = "path_to_your_text_file.txt"  # replace with the path to your text file
+    file_path = "test_data.csv"  # replace with the path to your text file
     sentences = load_sentences_from_file(file_path)
 
     # Classify sentences using naive bayes technique

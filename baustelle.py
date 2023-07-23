@@ -8,12 +8,11 @@ import joblib
 import datetime
 from create_synonyms import greetings_synonyms, analyze_synonyms, exit_synonyms
 
-
 lemmatizer = WordNetLemmatizer()
 spell = SpellChecker()
 
 stop_words_orig = set(stopwords.words('english'))
-exclude_stopword = {'not'}
+exclude_stopword = {'not', 'against', 'nor', 'no'}
 stop_words = ([word for word in stop_words_orig if word not in exclude_stopword])
 
 loaded_clf_logistic = joblib.load('classifier.logistic_regression')
@@ -41,16 +40,15 @@ def clean_user_input(user_input):
     clean_response = ' '.join(base_words)
     return clean_response
 
-
 def classify_sentence(sentence, technique):
-    if technique == 'logistic':
+    if technique == 'Logistic Regression':
         vector = loaded_vectorizer_logistic
         classifier = loaded_clf_logistic
-    elif technique == 'naive':
+    elif technique == 'Naive Bayes':
         vector = loaded_vectorizer_naive
         classifier = loaded_clf_naive
     else:
-        log_and_print("Chatbot", "Invalid technique. Please choose either 'logistic' or 'naive'.")
+        log_and_print("Chatbot", "Invalid technique. Please choose either 'Logistic Regression' or 'Naive Bayes'.")
         return
 
     vectorized_sentence = vector.transform([sentence])
@@ -58,72 +56,120 @@ def classify_sentence(sentence, technique):
     response = f"The result of the {technique} classification is: {classification_result[0]}"
     log_and_print('Chatbot', response)
 
-def generate_response(user_input):
+def generate_response(user_input, analyze_mode, confirm_analyze_mode):
     patterns = {
-        r'(?i)({}).*'.format('|'.join(greetings_synonyms)): "How can I help you?",
-        r'(?i)({}).*'.format('|'.join(exit_synonyms)): "See You!",
-        r'(?i)({}).*'.format('|'.join(analyze_synonyms)): "Great! Please enter the first sentence you would like to analyze."
+        r'(?i)({}).*'.format('|'.join(greetings_synonyms)): ("How can I help you?", False, False, False),
+        r'(?i)({}).*'.format('|'.join(exit_synonyms)): ("See You!", False, False, True),
     }
 
-    for pattern, response in patterns.items():
+    for pattern, (response, new_analyze_mode, new_confirm_analyze_mode, new_exit_chat) in patterns.items():
         if re.match(pattern, user_input):
             log_and_print('Chatbot', response)
-            return response
+            return new_analyze_mode, new_confirm_analyze_mode, new_exit_chat
     
+    if any(word in user_input.lower() for word in analyze_synonyms):
+        log('User', user_input)
+        log_and_print('Chatbot', "Great! You seem interested in analyzing a sentence. Confirm by typing 'yes' or 'no' to cancel.")
+        return True, True, False  # analyze_mode is True, confirm_analyze_mode is True
+    log('User', user_input)
+    log_and_print('Chatbot', "Sorry, I don't understand. Please try again or read the README file.")
+    return analyze_mode, confirm_analyze_mode, False  # By default, it will not exit chat
 
 def save_chat_log():
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     with open(f'chat_log_{timestamp}.txt', 'w') as file:
-        file.write(f"This is your chatlog from the conversation from {timestamp}\n\n")
+        file.write(f"This is your chat log from the conversation from {timestamp}\n\n")
         for speaker, message in chat_log:
             file.write(f"{speaker}: {message}\n")
 
+def analyze_sentence():
+    log_and_print('Chatbot', "Please type the sentence you want to analyze:")
+    sentence_to_analyze = input('User: ')  # Wait for user input as the sentence to analyze
+    log('User', sentence_to_analyze)
+    cleaned_sentence = clean_user_input(sentence_to_analyze) #Clean the sentence here
+    log_and_print('Chatbot', "Cleaned sentence - " + cleaned_sentence)
+
+    technique = ask_for_technique()
+
+    classify_sentence(cleaned_sentence, technique)  # Here I've put the Logistic Regression as the default model. Adjust it as per your needs.
+
 def main():
+    analyze_mode = False
+    confirm_analyze_mode = False
+    exit_chat = False
+    sentence_to_analyze = None
+    technique = None
+
     log_and_print('Chatbot', "Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?")
-    while True:
-        user_input = input("User: ")
-        log('User', user_input)
 
-        # Apply spell check on user_input before further processing
-        corrected_user_input = clean_user_input(user_input)
+    while not exit_chat:
+        user_input = input('User: ')
+        corrected_user_input = user_input  # Directly assign user's input without correction
 
-        generated_response = generate_response(corrected_user_input)
-        if generated_response:
-            if 'See You!' in generated_response:
-                break
-            continue
+        if analyze_mode:
+            if confirm_analyze_mode:
+                if user_input.lower() == 'yes':
+                    confirm_analyze_mode = False  # Reset for the next round
 
-        cleaned_sentence = corrected_user_input  # We have already cleaned it, no need to clean again
-        log_and_print('Chatbot', 'Cleaned sentence - ' + cleaned_sentence)
-        while True:
-            technique = input("Which technique would you like to use (logistic/naive)? ").lower()
-            log('Chatbot', "Which technique would you like to use (logistic/naive)? ")  # Log the question
-            log('User', technique)
-            if 'logistic' in technique:
-                technique = 'logistic'
-                break
-            elif 'naive' in technique:
-                technique = 'naive'
-                break
+                    analyze_sentence()
+                    while ask_to_analyze_again():
+                        analyze_sentence()
+                        
+                    analyze_mode = False
+
+                elif user_input.lower() == 'no':
+                    analyze_mode = False  # Also reset analyze_mode for the next round
+                    confirm_analyze_mode = False  # Also reset confirm_analyze_mode for the next round
+                    log_and_print('Chatbot', "Alright. Cancelling analysis. What would you like to do?")
+                else:
+                    log_and_print('Chatbot', "Invalid response. Please type 'yes' to confirm or 'no' to cancel.")
             else:
-                log_and_print('Chatbot', "Invalid technique. Please include either 'logistic' or 'naive' in your response.")
-                
-        classify_sentence(cleaned_sentence, technique)
-        cont = input("Do you want to analyze another sentence? (y/n): ")
-        log('Chatbot', "Do you want to analyze another sentence? (y/n): ")  # Log the question
-        log('User', cont)
-        if cont.lower() == 'n':
-            break
+                analyze_mode, confirm_analyze_mode, exit_chat = generate_response(corrected_user_input, analyze_mode, confirm_analyze_mode)
+        else:
+            analyze_mode, confirm_analyze_mode, exit_chat = generate_response(corrected_user_input, analyze_mode, confirm_analyze_mode)
 
-    log_choice = input("Would you like to save the chat log? (y/n): ")
-    log('Chatbot', "Would you like to save the chat log? (y/n): ")  # Log the question
-    log('User', log_choice)
-    if log_choice.lower() == 'y':
-        log_and_print('Chatbot', "Alright. Saving chat log... Good Bye!")
-        save_chat_log()
+    ask_to_save_chat_log()
 
-    if log_choice.lower() == 'n':
-        log_and_print('Chatbot', "Alright. Have a good one!")
+def ask_for_technique():
+    while True:
+        technique = input("Which technique would you like to use (Logistic Regression/Naive Bayes)? ")
+        log('Chatbot', "Which technique would you like to use (Logistic Regression/Naive Bayes)? ")
+        log('User', technique)
+
+        if technique.lower() in ['logistic regression', 'naive bayes']:
+            return technique.title()
+        else:
+            log_and_print('Chatbot', "Invalid input. Please choose either 'Logistic Regression' or 'Naive Bayes'.")
+
+def ask_to_analyze_again():
+    while True:
+        analyze_again = input("Would you like to analyze another sentence? (y/n): ")
+        log('Chatbot', "Would you like to analyze another sentence? (y/n): ")
+        log('User', analyze_again)
+
+        if analyze_again.lower() == 'y':
+            return True
+        elif analyze_again.lower() == 'n':
+            ask_to_save_chat_log()
+            return False
+        else:
+            log_and_print('Chatbot', "Invalid input. Please type 'y' to confirm or 'n' to cancel.")
+
+def ask_to_save_chat_log():
+    while True:
+        log_choice = input("Would you like to save the chat log? (y/n): ")
+        log('Chatbot', "Would you like to save the chat log? (y/n): ")
+        log('User', log_choice)
+
+        if log_choice.lower() == 'y':
+            log_and_print('Chatbot', "Alright. Saving chat log... Good Bye! See you soon!")
+            save_chat_log()
+            exit()
+        elif log_choice.lower() == 'n':
+            log_and_print('Chatbot', "Alright. Have a good one! See you next time!")
+            exit()
+        else:
+            log_and_print('Chatbot',"Invalid input! Only 'y' or 'n' allowed.")
 
 if __name__ == "__main__":
     main()
