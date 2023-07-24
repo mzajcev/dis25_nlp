@@ -17,7 +17,7 @@ analyze_list = [
 
 exit_list = [
     'Leave', 'Depart', 'Go out', 'Withdraw', 'Egress', 'Vacate', 'Evacuate', 'Abandon', 'Retreat', 'Quit',
-    'Flee', 'Bail out', 'Escape', 'Scurry', 'Clear out', 'Walk out', 'Step out', 'Take off',
+    'Flee', 'Bail out', 'Escape', 'Scurry', 'Clear out', 'Walk out', 'Step out', 'Take off', 'End',
     'Pull out', 'Pass away', 'Decamp', 'Move out', 'Say goodbye', 'Bid farewell', 'Make an exit'
 ]
 

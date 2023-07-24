@@ -1,0 +1,37 @@
+This is your chat log from the conversation from 2023-07-24_22-46-22
+
+Chatbot: Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?
+User: Hey, I am Mathew. Whats up?
+Chatbot: Hello and Welcome! How can I help you?
+User: Help!
+Chatbot: For help and an explaination of my functions please read the according README file!
+User: Uh, nice. Thanks for the answer.
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: Who are your developer?
+Chatbot: This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.
+User: Cool, and how is the weather?
+Chatbot: I guess the weather is good. Nice, that you found the Easteregg. Please continue with a serious request.
+User: Alright. Please analyze the sentiment of a sentence.
+Chatbot: Great! You seem interested in analyzing the sentiment of a sentence. Confirm by typing 'y' or 'n' to cancel.
+User: YES!
+Chatbot: Invalid response. Please type 'y' to confirm or 'n' to cancel.
+User: y
+Chatbot: Please type the sentence you want to analyze:
+User: OMG! Totally addictin'! The twists 'n turns had me on the edge of my seet. Can't wait for the next season!.
+Chatbot: Cleaned sentence - om totally addiction twist turn edge see ca not wait next season
+Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
+User: Logistic
+Chatbot: The result of the Logistic Regression classification is: positive
+Chatbot: Would you like to analyze the sentiment of another sentence? (y/n): 
+User: y
+Chatbot: Please type the sentence you want to analyze:
+User: OMG! Totally addictin'! The twists 'n turns had me on the edge of my seet. Can't wait for the next season!.
+Chatbot: Cleaned sentence - om totally addiction twist turn edge see ca not wait next season
+Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
+User: Naive
+Chatbot: The result of the Naive Bayes classification is: positive
+Chatbot: Would you like to analyze the sentiment of another sentence? (y/n): 
+User: n
+Chatbot: Would you like to save the chat log? (y/n): 
+User: y
+Chatbot: Alright. Saving chat log... Good Bye! See you soon!
