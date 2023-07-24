@@ -1,0 +1,43 @@
+This is your chat log from the conversation from 2023-07-24_17-10-41
+
+Chatbot: Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?
+User: hey whats up?
+Chatbot: How can I help you?
+User: Maybe with the weather?
+User: maybe weather
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: weather
+Chatbot: I guess the weather is good. Nice, that you found the Easteregg. Please continue with a serious request.
+User: help?
+Chatbot: For help and an explaination of my functions please read the according README file!
+User: who developed?
+User: developed
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: who is the developer?
+Chatbot: This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.
+User: Nice!
+User: nice
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: okay, analy�ze me a sentence
+User: okay analyze sentence
+Chatbot: Great! You seem interested in analyzing a sentence. Confirm by typing 'y' or 'n' to cancel.
+User: y
+Chatbot: Please type the sentence you want to analyze:
+User: The episode was the worst thing i have ever seen
+Chatbot: Cleaned sentence - episode worst thing ever seen
+Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
+User: logistic
+Chatbot: The result of the Logistic Regression classification is: 0
+Chatbot: Would you like to analyze another sentence? (y/n): 
+User: y
+Chatbot: Please type the sentence you want to analyze:
+User: the episode was the worst thing i have ever seen
+Chatbot: Cleaned sentence - episode worst thing ever seen
+Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
+User: naive
+Chatbot: The result of the Naive Bayes classification is: 0
+Chatbot: Would you like to analyze another sentence? (y/n): 
+User: n
+Chatbot: Would you like to save the chat log? (y/n): 
+User: y
+Chatbot: Alright. Saving chat log... Good Bye! See you soon!

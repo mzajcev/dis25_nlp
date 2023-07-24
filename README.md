@@ -6,6 +6,8 @@
 
 Welcome to Mr.C-Bot! Mr.C-Bot is a conversational agent powered by machine learning and natural language processing techniques. Developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev, the bot's primary purpose is to analyze sentences and classify them according to predefined categories, using either Logistic Regression or Naive Bayes classifier. 
 
+Mr.C-Bot is an intelligent chatbot designed to interact with users and perform sentence classification. It is built with advanced NLP techniques and machine learning algorithms to understand user requests and generate appropriate responses. We hope you enjoy using Mr.C-Bot and find it useful for your needs!
+
 The chatbot performs the following key operations:
 
 - Greet users and listen to their inputs.
@@ -33,15 +35,15 @@ The chatbot performs the following key operations:
 
 ### Additional Commands
 
-- **Ask for help** - If you need help, you can use keywords like "help", "assist", "aid" etc. The bot will provide a brief explanation about its functions.
+- **Ask for help** - If you need help, you can use the keyword "help". The bot will provide a brief explanation about its functions.
 
-- **Inquire about the author/developer** - If you want to know who created the bot, use keywords like "author", "creator", "developer" etc. The bot will provide the names of the developers.
+- **Inquire about the author/developer** - If you want to know who created the bot, use keywords like "author" or "developer". The bot will provide the names of the developers.
 
 - **Exit the program** - If you want to exit the program, you can use keywords like "exit", "quit", "stop", "end" etc. The bot will terminate the program.
 
 ### Important Notes
 
-- This chatbot uses logistic regression and naive bayes classifiers that are pre-trained on a specific dataset. The categories into which the bot can classify sentences depend on the dataset it was trained on.
+- This chatbot uses logistic regression and naive bayes classifiers that are pre-trained on a specific dataset (IMDB). The categories into which the bot can classify sentences depend on the dataset it was trained on.
 - The chatbot's understanding of user intent is based on keyword matching, so please use appropriate keywords for your requests.
 
 ### Dependencies
@@ -51,7 +53,3 @@ The chatbot performs the following key operations:
 - scikit-learn
 - pyspellchecker
 - joblib
-
-### Conclusion
-
-Mr.C-Bot is an intelligent chatbot designed to interact with users and perform sentence classification. It is built with advanced NLP techniques and machine learning algorithms to understand user requests and generate appropriate responses. We hope you enjoy using Mr.C-Bot and find it useful for your needs!
