@@ -1,0 +1,39 @@
+This is your chat log from the conversation from 2023-07-24_20-54-42
+
+Chatbot: Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?
+User: heyooo
+User: 
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: hallo
+User: hallo
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: was geht du doof
+User: geht du door
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: hellö
+User: hell
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: helloe
+Chatbot: Hello and Welcome! How can I help you?
+User: please test a sentiment for me
+Chatbot: Great! You seem interested in analyzing the sentiment of a sentence. Confirm by typing 'y' or 'n' to cancel.
+User: y
+Chatbot: Please type the sentence you want to analyze:
+User: THE MOVIE IS GOOD
+Chatbot: Cleaned sentence - movie good
+Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
+User: logistic
+Chatbot: The result of the Logistic Regression classification is: positive
+Chatbot: Would you like to analyze the sentiment of another sentence? (y/n): 
+User: y
+Chatbot: Please type the sentence you want to analyze:
+User: THE MOVIE IS BAD
+Chatbot: Cleaned sentence - movie bad
+Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
+User: naive
+Chatbot: The result of the Naive Bayes classification is: negative
+Chatbot: Would you like to analyze the sentiment of another sentence? (y/n): 
+User: n
+Chatbot: Would you like to save the chat log? (y/n): 
+User: y
+Chatbot: Alright. Saving chat log... Good Bye! See you soon!
