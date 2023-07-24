@@ -39,6 +39,8 @@ The chatbot performs the following key operations:
 
 - **Inquire about the author/developer** - If you want to know who created the bot, use keywords like "author" or "developer". The bot will provide the names of the developers.
 
+- **Easteregg** - If you want to try our Easteregg ask the bot something about the weather ;-)
+
 - **Exit the program** - If you want to exit the program, you can use keywords like "exit", "quit", "stop", "end" etc. The bot will terminate the program.
 
 ### Important Notes
