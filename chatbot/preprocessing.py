@@ -1,4 +1,5 @@
 import re
+import nltk
 from nltk.tokenize import word_tokenize
 from spellchecker import SpellChecker
 from nltk.stem import WordNetLemmatizer

@@ -1,0 +1,13 @@
+This is your chat log from the conversation from 2023-07-24_20-51-04
+
+Chatbot: Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?
+User: nice
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: nice
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: nice
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+Chatbot: You have terminated the program!
+Chatbot: Would you like to save the chat log? (y/n): 
+User: y
+Chatbot: Alright. Saving chat log... Good Bye! See you soon!

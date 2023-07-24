@@ -28,5 +28,14 @@ def classify_sentence(sentence, technique):
 
     vectorized_sentence = vector.transform([sentence])
     classification_result = classifier.predict(vectorized_sentence)
-    response = f"The result of the {technique} classification is: {classification_result[0]}"
+
+        # Convert the numeric classification result to "negative" or "positive"
+    if classification_result[0] == 0:
+        classification_label = "negative"
+    elif classification_result[0] == 1:
+        classification_label = "positive"
+    else:
+        classification_label = "unknown"
+
+    response = f"The result of the {technique} classification is: {classification_label}"
     log_and_print('Chatbot', response)

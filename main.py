@@ -1,4 +1,5 @@
 from chatbot import interaction, models, preprocessing, chat_logger
+from utils import nltkmodules
 
 def main():
     analyze_mode = False

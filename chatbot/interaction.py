@@ -6,11 +6,11 @@ from utils.create_synonyms import greetings_synonyms, exit_synonyms, analyze_syn
 
 def generate_response(user_input, analyze_mode, confirm_analyze_mode):
     patterns = {
-        r'(?i)({}).*'.format('|'.join(greetings_synonyms)): ("How can I help you?", False, False, False),
-        r'(?i)(weather).*': ("I guess the weather is good. Nice, that you found the Easteregg. Please continue with a serious request.", False, False, False),
-        r'(?i)(help).*': ("For help and an explaination of my functions please read the according README file!", False, False, False),
-        r'(?i)(author|developer).*': ("This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.", False, False, False),
-        r'(?i)({}).*'.format('|'.join(exit_synonyms)): ("You have terminated the program!", False, False, True),
+        r'(?i)({}).*'.format('|'.join(greetings_synonyms)): ("Hello and Welcome! How can I help you?", False, False, False),
+        r'(?i).*(weather).*': ("I guess the weather is good. Nice, that you found the Easteregg. Please continue with a serious request.", False, False, False),
+        r'(?i).*(help).*': ("For help and an explaination of my functions please read the according README file!", False, False, False),
+        r'(?i).*(author|developer).*': ("This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.", False, False, False),
+        r'(?i).*({}).*'.format('|'.join(exit_synonyms)): ("You have terminated the program!", False, False, True),
     }
 
     for pattern, (response, new_analyze_mode, new_confirm_analyze_mode, new_exit_chat) in patterns.items():
@@ -19,8 +19,7 @@ def generate_response(user_input, analyze_mode, confirm_analyze_mode):
             return new_analyze_mode, new_confirm_analyze_mode, new_exit_chat
     
     if any(word in user_input.lower() for word in analyze_synonyms):
-        log('User', user_input)
-        log_and_print('Chatbot', "Great! You seem interested in analyzing a sentence. Confirm by typing 'y' or 'n' to cancel.")
+        log_and_print('Chatbot', "Great! You seem interested in analyzing the sentiment of a sentence. Confirm by typing 'y' or 'n' to cancel.")
         return True, True, False  # analyze_mode is True, confirm_analyze_mode is True
     log('User', user_input)
     log_and_print('Chatbot', "Sorry, I don't understand. Please try again or read the README file.")
@@ -55,8 +54,8 @@ def ask_for_technique():
 
 def ask_to_analyze_again():
     while True:
-        analyze_again = input("Would you like to analyze another sentence? (y/n): ")
-        log('Chatbot', "Would you like to analyze another sentence? (y/n): ")
+        analyze_again = input("Would you like to analyze the sentiment of another sentence? (y/n): ")
+        log('Chatbot', "Would you like to analyze the sentiment of another sentence? (y/n): ")
         log('User', analyze_again)
 
         if analyze_again.lower() == 'y':
@@ -83,3 +82,6 @@ def ask_to_save_chat_log():
             exit()
         else:
             log_and_print('Chatbot',"Invalid input! Only 'y' or 'n' allowed.")
+
+
+# analye in regex
