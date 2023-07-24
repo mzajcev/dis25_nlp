@@ -4,6 +4,7 @@ from spellchecker import SpellChecker
 from nltk.stem import WordNetLemmatizer
 from string import punctuation
 from nltk.corpus import stopwords
+from nltk.corpus import wordnet
 
 lemmatizer = WordNetLemmatizer()
 spell = SpellChecker()
