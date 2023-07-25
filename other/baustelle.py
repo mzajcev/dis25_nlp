@@ -1,4 +1,5 @@
 import re
+from ..utils.nltkmodules import *
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -6,7 +7,7 @@ from string import punctuation
 from spellchecker import SpellChecker
 import joblib
 import datetime
-from create_synonyms import greetings_synonyms, analyze_synonyms, exit_synonyms
+from ..utils.create_synonyms import greetings_synonyms, analyze_synonyms, exit_synonyms
 
 lemmatizer = WordNetLemmatizer()
 spell = SpellChecker()
@@ -65,10 +66,10 @@ def generate_response(user_input, analyze_mode, confirm_analyze_mode):
         r'(?i)({}).*'.format('|'.join(exit_synonyms)): ("You have terminated the program!", False, False, True),
     }
 
-    for pattern, (response, new_analyze_mode, new_confirm_analyze_mode, new_exit_chat) in patterns.items():
+    for pattern, (response, new_analyze_mode, new_confirm_analyze_mode, exit_chat) in patterns.items():
         if re.match(pattern, user_input):
             log_and_print('Chatbot', response)
-            return new_analyze_mode, new_confirm_analyze_mode, new_exit_chat
+            return new_analyze_mode, new_confirm_analyze_mode, exit_chat
     
     if any(word in user_input.lower() for word in analyze_synonyms):
         log('User', user_input)

@@ -1,5 +1,6 @@
 import random
 
+# A dictionary that maps sentiments (positive, negative) to a list of recommendations. 
 content = {
     "POSITIVE": [
         "It seems like you enjoy good movies. Have you seen 'John Wick' or 'Mad Max: Fury Road'?",
@@ -15,8 +16,12 @@ content = {
     ]
 }
 
+# Function to generate a recommendation based on sentiment.
 def recommend_content(sentiment):
+    # If the sentiment exists in the content dictionary
     if sentiment in content:
+        # Select a random recommendation from the corresponding list and return it.
         return random.choice(content[sentiment])
     else:
+        # If the sentiment is not recognized, return a default response.
         return "Sorry, I can't provide a recommendation at this time."

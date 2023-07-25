@@ -2,7 +2,7 @@ import re
 import nltk
 from nltk.corpus import wordnet
 
-
+# Initial lists of words representing greetings, requests to analyze, and requests to exit.
 greetings_list = [
     'Hi', 'Hey', 'Greetings', 'Howdy', 'Salutations', 'Hiya', 'Yo', 'Hi there', "What's up", 'Hey there',
     'Hola', 'Bonjour', 'Ciao', 'Aloha', 'Wassup', "How's it going", "What's happening", "How's things", 'Good day',
@@ -21,7 +21,6 @@ exit_list = [
     'Pull out', 'Pass away', 'Decamp', 'Move out', 'Say goodbye', 'Bid farewell', 'Make an exit'
 ]
 
-
 # Function to generate synonyms for a given list of words
 def generate_synonyms(word_list):
     list_syn = []
@@ -29,15 +28,17 @@ def generate_synonyms(word_list):
     for word in word_list:
         synonyms = []
 
-        # Create synonyms for each word
+        # For each set of synonyms that match the word
         for syn in wordnet.synsets(word):
+            # For each lemma in the set of synonyms
             for lem in syn.lemmas():
 
                 # Remove any special characters from synonym strings
                 lem_name = re.sub('[^a-zA-Z0-9 \n\.]', ' ', lem.name())
-                synonyms.append(lem_name.lower())  # Convert to lowercase to make the list case-insensitive
+                # Append each lemma to the list of synonyms and convert to lowercase
+                synonyms.append(lem_name.lower())  
 
-        # Add the word itself to the list of synonyms
+        # Add the word itself to the list of synonyms and convert to lowercase
         synonyms.append(word.lower())
 
         # Removing duplicates for each word by converting to set and back to list
@@ -51,7 +52,7 @@ def generate_synonyms(word_list):
     
     return list_synonyms
 
-# Generating synonym lists for each word list
+# Generate lists of synonyms for each word list
 greetings_synonyms = generate_synonyms(greetings_list)
 analyze_synonyms = generate_synonyms(analyze_list)
 exit_synonyms = generate_synonyms(exit_list)
