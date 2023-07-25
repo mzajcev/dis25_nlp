@@ -6,9 +6,12 @@ from nltk.stem import WordNetLemmatizer
 from string import punctuation
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
+from googletrans import Translator
 
 lemmatizer = WordNetLemmatizer()
 spell = SpellChecker()
+translator = Translator()
+
 
 stop_words_orig = set(stopwords.words('english'))
 exclude_stopword = {'not', 'against', 'nor', 'no'}
@@ -16,7 +19,9 @@ stop_words = ([word for word in stop_words_orig if word not in exclude_stopword]
 
 def clean_user_input(user_input):
     user_input_no_html = re.sub('<.*?>', '', user_input)
-    user_input_token = word_tokenize(user_input_no_html)
+    user_input_en = translator.translate(user_input_no_html, dest='en').text
+    print(user_input_en) # Löschen -> nur für Test
+    user_input_token = word_tokenize(user_input_en)
     user_input_punct_lower = [x.lower() for x in user_input_token if x not in punctuation]
     user_input_no_num = [x for x in user_input_punct_lower if not x.isdigit()]
     correct_words = [spell.correction(word) for word in user_input_no_num]
