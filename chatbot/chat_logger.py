@@ -22,6 +22,3 @@ def save_chat_log():
         file.write(f"This is your chat log from the conversation from {timestamp}\n\n")
         for speaker, message in chat_log:
             file.write(f"{speaker}: {message}\n")
-
-
-# double log
