@@ -1,34 +1,43 @@
-This is your chat log from the conversation from 2023-07-24_20-54-42
+This is your chat log from the conversation from 2023-07-24_22-55-10
 
 Chatbot: Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?
-User: heyooo
-User: 
+User: na du
 Chatbot: Sorry, I don't understand. Please try again or read the README file.
-User: hallo
-User: hallo
+User: was geht
 Chatbot: Sorry, I don't understand. Please try again or read the README file.
-User: was geht du doof
-User: geht du door
+User: hilfe
 Chatbot: Sorry, I don't understand. Please try again or read the README file.
-User: hellö
-User: hell
+User: HELP
+Chatbot: For help and an explanation of my functions please read the according README file!
+User: Wo are your developer?
+Chatbot: This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.
+User: How will the weather be tomorrow?
+Chatbot: I guess the weather is good. Nice, that you found the Easteregg. Please continue with a serious request.
+User: Funny
 Chatbot: Sorry, I don't understand. Please try again or read the README file.
-User: helloe
+User: hi
 Chatbot: Hello and Welcome! How can I help you?
-User: please test a sentiment for me
+User: I need a sentiment analysis of a sentence
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: I need a sentiment analys for a sentence
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: I need a sentiment analzö 
 Chatbot: Great! You seem interested in analyzing the sentiment of a sentence. Confirm by typing 'y' or 'n' to cancel.
 User: y
 Chatbot: Please type the sentence you want to analyze:
-User: THE MOVIE IS GOOD
-Chatbot: Cleaned sentence - movie good
+User: new friend
+Chatbot: Cleaned sentence - new friend
 Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
-User: logistic
-Chatbot: The result of the Logistic Regression classification is: positive
+User: naive
+Chatbot: The result of the Naive Bayes classification is: positive
 Chatbot: Would you like to analyze the sentiment of another sentence? (y/n): 
 User: y
 Chatbot: Please type the sentence you want to analyze:
-User: THE MOVIE IS BAD
-Chatbot: Cleaned sentence - movie bad
+User: logistic
+Chatbot: Cleaned sentence - logistic
+Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
+User: hehe
+Chatbot: Invalid input. Please choose either 'Logistic Regression' or 'Naive Bayes'.
 Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
 User: naive
 Chatbot: The result of the Naive Bayes classification is: negative

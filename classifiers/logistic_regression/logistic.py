@@ -18,6 +18,9 @@ nltk.download('stopwords')
 
 lemmatizer = WordNetLemmatizer()
 cachedStopWords = stopwords.words("english")
+exclude_stopword = {'not', 'against', 'nor', 'no'}
+stop_words = ([word for word in cachedStopWords if word not in exclude_stopword])
+
 
 def load_data():
     # Load the IMDb reviews dataset
@@ -52,7 +55,7 @@ def preprocess_data(dataframe):
     dataframe['text'] = dataframe['text'].apply(lambda words: [x for x in words if not x.isdigit()])
 
     # Stopword removal
-    dataframe['text'] = dataframe['text'].apply(lambda words: [x for x in words if x not in cachedStopWords])
+    dataframe['text'] = dataframe['text'].apply(lambda words: [x for x in words if x not in stop_words])
 
     # Lemmatization
     dataframe['text'] = dataframe['text'].apply(lambda words: [lemmatizer.lemmatize(x) for x in words])
