@@ -1,8 +1,6 @@
-# Import relevant modules
 from chatbot import interaction, models, preprocessing, chat_logger
 from utils import nltkmodules
 
-# Main function for the chatbot
 def main():
     # Initialize variables for analysis mode, confirm analysis mode, exit chat, sentence to analyze, and technique
     analyze_mode = False
@@ -11,27 +9,25 @@ def main():
     sentence_to_analyze = None
     technique = None
 
-    # The chatbot introduces itself and instructs the user
+    # Give User Instructions
     chat_logger.log_and_print('Chatbot', "Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?")
 
-    # While the chatbot is not set to exit
+    # While chatbot is not set to exit
     while not exit_chat:
-        # Get input from the user
+        # Get User input and log it
         user_input = input('User: ')
-        # Log the user's input
         chat_logger.log('User', user_input)
-        # Preprocess and correct the user's input
+        # Clean user input by calling function 'clean_user_input'
         corrected_user_input = preprocessing.clean_user_input(user_input)
 
-        # If the chatbot is in analysis mode
+        # If user input leads to analyze
         if analyze_mode:
-            # If the chatbot is in confirm analysis mode
             if confirm_analyze_mode:
-                # If the user confirms
+                # If user confirms analyze mode
                 if user_input.lower() == 'y':
-                    # Reset the confirm analysis mode for the next round
+                    # Reset confirm analysis mode for the next round
                     confirm_analyze_mode = False
-                    # Analyze the sentence
+                    # Analyze sentence
                     interaction.analyze_sentence()
                     # While the user wants to analyze again
                     while interaction.ask_to_analyze_again():
@@ -40,11 +36,10 @@ def main():
                     # Exit analysis mode
                     analyze_mode = False
 
-                # If the user cancels
+                # If user canacles analyze mode
                 elif user_input.lower() == 'n':
-                    # Reset analysis mode for the next round
+                    # Reset analysis mode and confirm analysis mode for the next round
                     analyze_mode = False
-                    # Also reset confirm analysis mode for the next round
                     confirm_analyze_mode = False
                     # Inform the user that the analysis has been cancelled
                     chat_logger.log_and_print('Chatbot', "Alright. Cancelling analysis. What would you like to do?")
@@ -58,11 +53,9 @@ def main():
             # Generate a response based on the user's input
             analyze_mode, confirm_analyze_mode, exit_chat = interaction.generate_response(corrected_user_input, analyze_mode, confirm_analyze_mode)
 
-    # Ask the user if they want to save the chat log
+    # Ask user for chat log save
     interaction.ask_to_save_chat_log()
 
 
-# If the script is run directly (not imported)
 if __name__ == "__main__":
-    # Run the main function
     main()
