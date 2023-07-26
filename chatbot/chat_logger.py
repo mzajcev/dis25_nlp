@@ -24,7 +24,7 @@ def save_chat_log():
 
     # Open new txt file and include current timestamp in file name
     with open(f'chat_logs/chat_log_{timestamp}.txt', 'w') as file:
-        file.write(f"This is your chat log from the conversation from {timestamp}\n\n")
+        file.write(f"This is your chat log of the conversation from {timestamp}\n\n")
         
         # Loop through each tuple in the chat_log list and write each name and message tuple into the file
         for speaker, message in chat_log:

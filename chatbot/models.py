@@ -39,9 +39,9 @@ def classify_sentence(sentence, technique):
     classification_result = classifier.predict(vectorized_sentence)
 
     # Convert the classification result to "NEGATIVE" or "POSITIVE"
-    if classification_result[0] == "negative":
+    if classification_result[0] == 0:
         classification_label = "NEGATIVE"
-    elif classification_result[0] == "positive":
+    elif classification_result[0] == 1:
         classification_label = "POSITIVE"
     else:
         classification_label = "unknown"
