@@ -1,3 +1,6 @@
+import re
+import joblib
+import pandas as pd
 import tensorflow as tf
 import tensorflow_datasets as tfds
 from sklearn.model_selection import GridSearchCV
@@ -7,9 +10,6 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.feature_extraction.text import TfidfVectorizer
-import re
-import joblib
-import pandas as pd
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer

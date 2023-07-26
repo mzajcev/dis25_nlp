@@ -13,6 +13,12 @@ The chatbot performs the following key operations:
 - Classify movie ratings based on user-selected technique: Logistic Regression or Naive Bayes.
 - Keep a record of the entire conversation that can be saved upon request.
 
+### Dependencies
+Please make sure to install the 'requirements.txt' before you try to use the bot to download the dependencies.
+
+### Start
+Start the bot by typing 'python .\main.py' into your console and enjoy!
+
 ### Usage
 
 1. **Initiate a conversation** - When you run the chatbot, it greets you and asks how it can help. 
@@ -46,10 +52,7 @@ The chatbot performs the following key operations:
 - This chatbot uses logistic regression and naive bayes classifiers that are pre-trained on a specific dataset (IMDB). The categories into which the bot can classify sentences depend on the dataset it was trained on.
 - The chatbot's understanding of user intent is based on keyword matching, so please use appropriate and logically keywords for your requests.
 
-### Dependencies
+### Beta Features
 
-- Python 3
-- NLTK
-- scikit-learn
-- pyspellchecker
-- joblib
+As this bot was intended to work in English language only, we decided to implement a translator based on google translate into this bot. You can try to write your input in German, or any other language. 
+ENJOY! 
