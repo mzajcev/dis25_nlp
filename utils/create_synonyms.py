@@ -2,7 +2,7 @@ import re
 import nltk
 from nltk.corpus import wordnet
 
-# Initial lists of words representing greetings, requests to analyze, and requests to exit.
+# List of words for greetings, analyze request and exit request with the goal to add synonyms to each list by using the 'generate_synonyms' function 
 greetings_list = [
     'Hi', 'Hey', 'Greetings', 'Howdy', 'Salutations', 'Hiya', 'Yo', 'Hi there', "What's up", 'Hey there',
     'Hola', 'Bonjour', 'Ciao', 'Aloha', 'Wassup', "How's it going", "What's happening", "How's things", 'Good day',
@@ -21,33 +21,33 @@ exit_list = [
     'Pull out', 'Pass away', 'Decamp', 'Move out', 'Say goodbye', 'Bid farewell', 'Make an exit'
 ]
 
-# Function to generate synonyms for a given list of words
+# Function to generate synonyms for each list
 def generate_synonyms(word_list):
     list_syn = []
     
     for word in word_list:
         synonyms = []
 
-        # For each set of synonyms that match the word
+        # Iterate through the set of synonyms that match the word from list
         for syn in wordnet.synsets(word):
-            # For each lemma in the set of synonyms
+            # Iterate through each synonym in the set of synonyms
             for lem in syn.lemmas():
 
-                # Remove any special characters from synonym strings
+                # Remove any special characters
                 lem_name = re.sub('[^a-zA-Z0-9 \n\.]', ' ', lem.name())
-                # Append each lemma to the list of synonyms and convert to lowercase
+                # Append each synonym to the list of synonyms and convert to lowercase
                 synonyms.append(lem_name.lower())  
 
         # Add the word itself to the list of synonyms and convert to lowercase
         synonyms.append(word.lower())
 
-        # Removing duplicates for each word by converting to set and back to list
+        # Remove duplicates
         synonyms = list(set(synonyms))
         
-        # Extend the list of synonyms with the synonyms for the current word
+        # Extend the list with the synonyms for the current word
         list_syn.extend(synonyms)
 
-    # Removing duplicates from the combined list by converting to set and back to list
+    # Removing duplicates from the combined list
     list_synonyms = list(set(list_syn))
     
     return list_synonyms
