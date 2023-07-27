@@ -19,6 +19,11 @@ Please make sure to install the 'requirements.txt' before you try to use the bot
 ### Start
 Start the bot by typing 'python .\main.py' into your console and enjoy!
 
+### Beta Features
+
+As this bot was intended to work in English language only, we decided to implement a translator based on google translate into this bot. You can try to write your input in German, or any other language. 
+ENJOY! 
+
 ### Usage
 
 1. **Initiate a conversation** - When you run the chatbot, it greets you and asks how it can help. 
@@ -52,7 +57,4 @@ Start the bot by typing 'python .\main.py' into your console and enjoy!
 - This chatbot uses logistic regression and naive bayes classifiers that are pre-trained on a specific dataset (IMDB). The categories into which the bot can classify sentences depend on the dataset it was trained on.
 - The chatbot's understanding of user intent is based on keyword matching, so please use appropriate and logically keywords for your requests.
 
-### Beta Features
 
-As this bot was intended to work in English language only, we decided to implement a translator based on google translate into this bot. You can try to write your input in German, or any other language. 
-ENJOY! 
