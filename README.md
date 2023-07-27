@@ -14,7 +14,7 @@ The chatbot performs the following key operations:
 - Keep a record of the entire conversation that can be saved upon request.
 
 ### Dependencies
-Please make sure to install the 'requirements.txt' before you try to use the bot to download the dependencies.
+Please make sure to create a virtual enviroment and after that install the 'requirements.txt' before you try to use the bot to download the dependencies.
 
 ### Start
 Start the bot by typing 'python .\main.py' into your console and enjoy!
