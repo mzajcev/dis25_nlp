@@ -17,9 +17,9 @@ def generate_response(user_input, analyze_mode, confirm_analyze_mode):
         r'(?i).*(help).*': ("For help and an explanation of my functions please read the according README file!", False, False, False),
         # Matches user input that includes the word 'author' or 'developer'
         r'(?i).*(author|developer).*': ("This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.", False, False, False),
-        # Matches user input that is in teh analyze_synonyms list
+        # Matches user input that is in the analyze_synonyms list
         r'(?i).*({}).*'.format('|'.join(analyze_synonyms)): ("Great! You seem interested in analyzing the sentiment of a sentence. Confirm by typing 'y' or 'n' to cancel.", True, True, False),
-        # Matches user input that is in teh exit_synonyms list
+        # Matches user input that is in the exit_synonyms list
         r'(?i).*({}).*'.format('|'.join(exit_synonyms)): ("You have terminated the program!", False, False, True)
     }
 

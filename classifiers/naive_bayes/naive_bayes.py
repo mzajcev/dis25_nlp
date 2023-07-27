@@ -35,7 +35,7 @@ def load_data():
 # Load the data
 train_df, test_df = load_data()
 
-# Define your preprocessing function
+# Defining of preprocessing function
 lemmatizer = WordNetLemmatizer()
 cachedStopWords = stopwords.words("english")
 exclude_stopword = {'not', 'against', 'nor', 'no'}

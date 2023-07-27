@@ -44,7 +44,7 @@ def classify_sentence(sentence, technique):
     elif classification_result[0] == 1:
         classification_label = "POSITIVE"
     else:
-        classification_label = "unknown"
+        classification_label = "UNKNOWN"
 
     # Create response containing the classification result
     response = f"The result of the {technique} classification is: {classification_label}\n"
