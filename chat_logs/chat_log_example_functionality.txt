@@ -1,0 +1,27 @@
+This is your chat log of your conversation from 2023-07-28_00-03-39
+
+Chatbot: Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?
+User: Greetings, whats up?
+Chatbot: Hello and Welcome! How can I help you?
+User: I dont know, what you do. Help me please!
+Chatbot: For help and an explanation of my functions please read the according README file!
+User: Ah great. I read it - tell me something about the weather!
+Chatbot: I guess the weather is good. Nice, that you found the Easteregg. Please continue with a serious request.
+User: LOL! How is this possible. I would like to classify a sentence and get the sentiment for it.
+Chatbot: Great! You seem interested in analyzing the sentiment of a sentence. Confirm by typing 'y' or 'n' to cancel.
+User: n
+Chatbot: Alright. Cancelling analysis. What would you like to do?
+User: I'm afraid.
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: n
+Chatbot: Sorry, I don't understand. Please try again or read the README file.
+User: AH, i need to say something? Who are your developers?
+Chatbot: This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.
+User: OK, this is to much for me. I want to exit please!
+Chatbot: You have terminated the program!
+Chatbot: Would you like to save the chat log? (y/n): 
+User: YES!!!!!!!!
+Chatbot: Invalid input! Only 'y' or 'n' allowed.
+Chatbot: Would you like to save the chat log? (y/n): 
+User: y
+Chatbot: Alright. Saving chat log... Good Bye! See you soon!
