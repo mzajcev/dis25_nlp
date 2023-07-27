@@ -1,10 +1,10 @@
 # README
 
-## Mr.C-Bot: A Natural Language Processing (NLP) Based Chatbot
+## Chatbot: A Natural Language Processing (NLP) Based Chatbot
 
 ### Introduction
 
-Welcome to Mr.C-Bot! Mr.C-Bot is a conversational agent powered by machine learning and natural language processing techniques. Developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev, the bot's primary purpose is to analyze the sentiment of movie reviews and classify them according to predefined categories, using either Logistic Regression or Naive Bayes classifier. 
+Welcome to our Chatbot! It is a conversational agent powered by machine learning and natural language processing techniques. Developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev, the bot's primary purpose is to analyze the sentiment of movie reviews and classify them according to predefined categories, using either Logistic Regression or Naive Bayes classifier. 
 
 The chatbot performs the following key operations:
 
