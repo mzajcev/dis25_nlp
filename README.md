@@ -10,7 +10,7 @@ The chatbot performs the following key operations:
 
 - Greet users and listen to their inputs.
 - Clean the input data by removing HTML tags, punctuations, digits, and stop words; correcting spellings, and lemmatizing the words.
-- Classify movie ratings based on user-selected technique: Logistic Regression or Naive Bayes.
+- Classify movie ratings based on user-selected technique: Logistic Regression or Naive Bayes and recommends movies based on the sentiment of the user-input.
 - Keep a record of the entire conversation that can be saved upon request.
 
 ### Dependencies
