@@ -34,27 +34,28 @@ ENJOY!
 
 4. **Input a movie review for analysis** - If you confirmed in the previous step, the bot will ask you to type the sentence you want to analyze.
 
-5. **Choose analysis technique** - After inputting the sentence, the bot will ask which technique you want to use for analysis: Logistic Regression or Naive Bayes. Type in your choice.
+5. **Choose analysis technique** - After inputting the sentence, the bot will ask which technique you want to use for analysis: Logistic Regression or Naive Bayes. You can easily type 'logistic' or 'naive' to make a choice. Type in your choice.
 
-6. **Receive classification result** - After you have selected the technique, the bot will analyze the sentence and output the classification result.
+6. **Receive classification result** - After you have selected the technique, the bot will analyze the sentence and output the sentiment result. Also you will receive a recommendation based on your sentiment result.
 
 7. **Continue or end the conversation** - After one round of analysis, you can choose to analyze another sentence or end the conversation. The bot will ask for your decision.
 
 8. **Save chat log** - Upon ending the conversation, the bot will ask if you would like to save the chat log. If you type 'y', it will save the conversation in a text file with a timestamp. If you type 'n', it will simply say goodbye and close the program.
 
+
 ### Additional Commands
 
-- **Ask for help** - If you need help, you can use the keyword "help". The bot will provide a brief explanation about its functions.
+- **Ask for help** - If you need help, you can use the keyword "help". The bot will basically send you here, to read the README.
 
 - **Inquire about the author/developer** - If you want to know who created the bot, use keywords like "author" or "developer". The bot will provide the names of the developers.
 
-- **Easteregg** - If you want to try our Easteregg ask the bot something about the weather with the keyword "weather" ;-)
+- **Easteregg** - If you want to try our Easteregg ask the bot something about the weather with the keyword "weather" in your input ;-)
 
 - **Exit the program** - If you want to exit the program, you can use keywords like "exit", "quit", "stop", "end" etc. The bot will terminate the program.
 
 ### Important Notes
 
 - This chatbot uses logistic regression and naive bayes classifiers that are pre-trained on a specific dataset (IMDB). The categories into which the bot can classify sentences depend on the dataset it was trained on.
-- The chatbot's understanding of user intent is based on keyword matching, so please use appropriate and logically keywords for your requests.
+- The chatbot's understanding of user intent is based on keyword matching, so please use appropriate and logically keywords for your requests. Even if the bot can correct wrong entries, please write sensibly.
 
 
