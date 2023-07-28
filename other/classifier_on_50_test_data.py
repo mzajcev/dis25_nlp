@@ -67,11 +67,13 @@ def clean_user_input(user_input):
     # Return cleaned response
     return clean_response
 
+# Function to load sentences from file (csv)
 def load_sentences_from_file(file_path):
     with open('test_data.csv', 'r') as file:
         sentences = file.read().splitlines()
     return sentences
 
+# classifies the sentence into positive or negative and loads appropriate classifier/vectorizer
 def classify_sentence(sentence, technique):
     global loaded_clf_logistic, loaded_clf_naive, loaded_vectorizer_logistic, loaded_vectorizer_naive
 
@@ -103,12 +105,13 @@ def classify_sentence(sentence, technique):
     response = f"The result of the {technique} classification is: {classification_label}\n"
     return response 
 
-
+# process list of sentences
 def process_sentences(sentences, technique):
     for sentence in sentences:
         cleaned_sentence = clean_user_input(sentence)
         print(classify_sentence(cleaned_sentence, technique))
 
+# main function to loop trough the 50 test reviews and classify them for further analysis
 def main():
     file_path = "test_data.csv" 
     sentences = load_sentences_from_file(file_path)
