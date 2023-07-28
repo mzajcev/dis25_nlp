@@ -4,14 +4,14 @@
 
 ### Introduction
 
-Welcome to our Chatbot! It is a conversational agent powered by machine learning and natural language processing techniques. Developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev, the bot's primary purpose is to analyze the sentiment of movie reviews and classify them according to predefined categories, using either Logistic Regression or Naive Bayes classifier. 
+Welcome to our Chatbot! It is a conversational agent powered by natural language processing techniques. Developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev, the bot's primary purpose is to analyze the sentiment of movie reviews and classify them according to predefined categories, using either Logistic Regression or Naive Bayes classifier. 
 
 The chatbot performs the following key operations:
 
-- Greet users and listen to their inputs.
-- Clean the input data by removing HTML tags, punctuations, digits, and stop words; correcting spellings, and lemmatizing the words.
-- Classify movie ratings based on user-selected technique: Logistic Regression or Naive Bayes and recommends movies based on the sentiment of the user-input.
-- Keep a record of the entire conversation that can be saved upon request.
+- Greets users and listen to their inputs.
+- Cleans the input data by removing HTML tags, punctuations, digits, and stop words; correcting spellings, and lemmatizing the words.
+- Classifys movie ratings based on user-selected technique: Logistic Regression or Naive Bayes and recommends movies based on the sentiment of the user-input.
+- Keeps a record of the entire conversation that can be saved upon request.
 
 ### Dependencies
 Please make sure to create a virtual enviroment and after that install the 'requirements.txt' before you try to use the bot to download the dependencies.
