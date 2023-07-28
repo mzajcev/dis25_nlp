@@ -1,35 +1,35 @@
-This is your chat log of your conversation from 2023-07-28_00-01-08
+This is your chat log of your conversation from 2023-07-28_21-15-08
 
 Chatbot: Hello, I am Mr.C-Bot and I am here to help. Please make sure to read the README file before talking to me. What can I do for you?
-User: Hallo. Ich bin Matthias.
+User: Hallo. Ich bin Matthias!
 Chatbot: Hello and Welcome! How can I help you?
 User: Ich glaube, dass ich Hilfe brauche!
 Chatbot: For help and an explanation of my functions please read the according README file!
-User: Wer sind deine Entwickler?
+User: Wer sind denn deine Entwickler?
 Chatbot: This Chatbot is created and developed by Maurice Sielmann, Marc Pricken and Matthias Zajcev.
-User: Cool. Danke für die Information.
+User: Cool. Danke für die Info!
 Chatbot: Sorry, I don't understand. Please try again or read the README file.
 User: Wie wird das Wetter morgen?
 Chatbot: I guess the weather is good. Nice, that you found the Easteregg. Please continue with a serious request.
-User: Ich würde gerne das Sentiment eines Satzes analysieren.
+User: Ich würde gerne das Sentiment einer Filmkritit auswerten.
 Chatbot: Great! You seem interested in analyzing the sentiment of a sentence. Confirm by typing 'y' or 'n' to cancel.
 User: y
 Chatbot: Please type the sentence you want to analyze:
-User: Der Film war so schlecht, dass ich nie wieder ins Kino möchte!
+User: Der Film war so schlecht, dass ich nie wieder ins Kino will!
 Chatbot: Cleaned sentence - film bad never want go cinema
 Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
 User: Logistic
 Chatbot: The result of the Logistic Regression classification is: NEGATIVE
-Based on your sentiment analysis result, here is a recommendation for you: It seems like that movie wasn't to your taste. Perhaps you'd prefer action-packed films such as 'Mission: Impossible' or 'Die Hard'.
+Based on your sentiment analysis result, here is a recommendation for you: That's disappointing. If you're open to documentaries, 'The Social Dilemma' or 'Free Solo' are quite insightful.
 Chatbot: Would you like to analyze the sentiment of another sentence? (y/n): 
 User: y
 Chatbot: Please type the sentence you want to analyze:
-User: Der Film war so schlecht, dass ich nie wieder ins Kino möchte!
+User: Der Film war so schlecht, dass ich nie wieder ins Kino will!
 Chatbot: Cleaned sentence - film bad never want go cinema
 Chatbot: Which technique would you like to use (Logistic Regression/Naive Bayes)? 
-User: Naive Bayes
+User: Naive
 Chatbot: The result of the Naive Bayes classification is: NEGATIVE
-Based on your sentiment analysis result, here is a recommendation for you: From your response, it appears you didn't enjoy the movie. Maybe you'd appreciate something thought-provoking like 'A Beautiful Mind' or 'The Theory of Everything'.
+Based on your sentiment analysis result, here is a recommendation for you: How about trying a different genre? If you're open to horror, 'A Quiet Place' and 'Get Out' are thrilling experiences.
 Chatbot: Would you like to analyze the sentiment of another sentence? (y/n): 
 User: n
 Chatbot: Would you like to save the chat log? (y/n): 
